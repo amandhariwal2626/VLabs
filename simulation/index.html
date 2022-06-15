@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+   <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width">
+   <title>Time Value of Money</title>
+   <link href="css/style.css" rel="stylesheet" type="text/css" />
+   <!-- Latest compiled and minified CSS -->
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+   <!-- jQuery library -->
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+   <script src="https://use.fontawesome.com/releases/v5.15.4/js/all.js" data-auto-a11y="true"></script>
+   <!-- Latest compiled JavaScript -->
+   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+   <!-- Chart.js -->
+   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.5/umd/popper.min.js"></script>
+</head>
+
+<body style="background-color:#222831;">
+   <script src="js/script.js"></script>
+   <script>
+      (function () {
+         $('[data-toggle="tooltip"]').tooltip()
+      })
+   </script>
+   <div class="simscreen" id="screen1">
+      <div>
+         <h1 class="main-heading">Time Value of Money</h1>
+         <br>
+         <div class="border-box container-fluid">
+            <h3 class="simscreen-names center">
+               Objective:
+               <h3>
+                  <div class="definitions">
+                     <p>To calculate and visualize Time Value of Money for different time period and interest rates, as
+                        well as thoroughly examine graphs of the same and to understand the various factors that
+                        influence value of money over a period of time.</p>
+                  </div>
+                  <h3 class="simscreen-names center">Defintions :</h3>
+                  <div class="definitions">
+                     <p><span class="def-heading">Present Value:</span> The amount that is currently available.</p>
+                  </div>
+                  <br>
+                  <div class="definitions">
+                     <p><span class="def-heading">Future Value:</span> It is the value that you get in the future. It
+                        may be from the business profit you expect. The return on investment or simply the debt amount
+                        which is in due.</p>
+                  </div>
+                  <br>
+                  <div class="definitions">
+                     <p><span class="def-heading">Growth rate:</span> The growth rate of the money for a lifetime
+                        investment.</p>
+                  </div>
+                  <div class="calc center">
+                     <button class="btn btn-primary" onclick="Nav(1,2)">START</button>
+                  </div>
+         </div>
+      </div>
+   </div>
+
+   <div class="simscreen operations" id="screen2">
+      <h1 class="main-heading">Time Value of Money</h1>
+      <div class="row tabs-container operations__tab-container">
+         <!-- <div class="tab col-sm-6 tabs open-cpv" id="calc1">
+                  <p>Calculating Present Value 
+                  <p>
+               </div> -->
+         <div class="tab col-sm-6 tabs " onclick="setDiv(this)" id="calc1">Calculating
+            Present Value
+         </div>
+        
+         <div class="tab col-sm-6 tabs" id="calc2" onclick="setDiv(this)">Calculating
+            Future Value
+         </div>
+      </div>
+   </div>
+   <div class="simscreen " id="calc1-screen">
+      <h2 class="simscreen-heading">
+         Calculating Present value</h1>
+         <div class="border-box center container-fluid">
+            <div class="row">
+               <div class="col-xs-12 col-md-6 form-group" id="fixed-costs">
+                  <h3 class="simscreen-names center">Enter following values: </h3>
+                  <ul>
+                     <li class="input-li">
+                        <label for="FV" class="cost-labels">Future Value of money :</label>
+                        <input type="number" id="FV" name="rent" placeholder="ex :- 10000">
+                     </li>
+                     <li class="input-li">
+                        <label for="i" class="cost-labels">Interest Rate :</label>
+                        <input type="number" id="i" name="wages" placeholder="ex :- 8">
+                     </li>
+                     <li class="input-li">
+                        <label for="n" class="cost-labels">No. of compounding periods per year :</label>
+                        <input type="number" id="n" name="otherFixed" placeholder="ex :- 2">
+                     </li>
+                     <li class="input-li">
+                        <label for="t" class="cost-labels">No. of years :</label>
+                        <input type="number" id="t" name="otherFixed" placeholder="ex :- 3">
+                     </li>
+                  </ul>
+                  <div class="center"><button onclick="inputFixed()" type="button"
+                        class="btn btn-info btn-sm">Submit</button></div>
+
+               </div>
+               <div class="col-xs-12 col-md-6 form-group" id="variable-costs">
+
+                  <label for="raw" class="cost-labels">Result:</label>
+                  <div class="msg-container" id="FVresult" bg-success></div>
+                  <div class="msg-container" id="variableMsg"></div>
+               </div>
+            </div>
+         </div>
+         
+   </div>
+   <div class=" simscreen " id="calc2-screen">
+      <h2 class="simscreen-heading">Calculating Future Value</h2>
+      <div class="border-box container-fluid">
+         <div class="row">
+            <div class="col-xs-12 col-md-6 form-group center">
+               <ul>
+                  <li class="input-li">
+                     <h3 style="text-align:center;color:#bef392;background-color:#686D76"
+                        class="btn btn-light cursor-pointer" data-toggle="modal" data-target="#formulamodal">
+                        Formulae:
+                     </h3>
+                  </li>
+                  <li class="input-li">
+                     <label for="PV" class="cost-labels">Future Value of money :</label>
+                     <input type="number" id="PV" name="raw" placeholder="ex :- 10000">
+                  </li>
+                  <li class="input-li">
+                     <label for="i" class="cost-labels">Interest Rate :</label>
+                     <input type="number" id="i" name="pack" placeholder="ex :- 8">
+                  </li>
+                  <li class="input-li">
+                     <label for="n" class="cost-labels">No. of compounding periods per year :</label>
+                     <input type="number" id="n" name="otherFixed" placeholder="ex :- 2">
+                  </li>
+                  <li class="input-li">
+                     <label for="t" class="cost-labels">No. of years :</label>
+                     <input type="number" id="t" name="otherFixed" placeholder="ex :- 3">
+                  </li>
+            </div>
+            <div class="col-xs-12 col-md-6 form-group" id="variable-costs">
+
+               <label for="raw" class="cost-labels">Result:</label>
+               <div class="msg-container" id="PVresult" bg-success></div>
+               <div class="msg-container" id="variableMsg"></div>
+            </div>
+           
+         </div>
+         <div class="center">
+            <button type="button" class="btn btn-info btn-sm" onclick="inputVariable()">Submit</button>
+         </div>
+         
+      </div>
+      
+     
+   </div>
+   </div>
+
+   </div>
+   </div>
+   <!-- Modal -->
+   <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+      aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+         <div style="background-color:#373A40" class="modal-content">
+            <div class="modal-header">
+               <h3 class="modal-title" id="exampleModalLongTitle" style="color: rgb(190, 243, 146)">Results</h3>
+               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+               </button>
+            </div>
+            <div class="modal-body">
+               <p>Total Fixed Cost: <span id="resFixed"></span></p>
+               <p>Total Variable Cost: <span id="resVariable"></span></p>
+               <p>Total Revenue: <span id="resRevenue"></span></p>
+            </div>
+            <div class="modal-footer">
+               <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+               <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+            </div>
+         </div>
+      </div>
+   </div>
+   <!-- Modal Formula -->
+   <div class="modal fade" id="formulamodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+      aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+         <div style="background-color:#373A40" class="modal-content">
+            <div class="modal-header">
+               <h3 class="modal-title" id="exampleModalLongTitle" style="color: rgb(190, 243, 146)">Equations:</h3>
+               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+               </button>
+            </div>
+            <div class="modal-body">
+               <img src="./images/formulae.png" class="img-responsive">
+            </div>
+            <div class="modal-footer">
+               <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+               <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+            </div>
+         </div>
+      </div>
+   </div>
+  
+   </div>
+   
+</body>
+
+</html>
