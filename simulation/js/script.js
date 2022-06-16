@@ -43,8 +43,8 @@ function deactivateTab(num) {
     v.style.border = "none";
 }
 
-function inputFixed() {
-    deactivateTab(2);
+function calcPV() {
+    deactivateTab(1);
     //deactivateTab(3);
     FV = document.getElementById("FV").value;
     i = document.getElementById("i").value;
@@ -74,7 +74,7 @@ function inputFixed() {
 
 }
 
-function inputVariable() {
+function calcFV() {
     deactivateTab(2);
     //deactivateTab(3);
     PV = document.getElementById("PV").value;
@@ -85,23 +85,24 @@ function inputVariable() {
     document.getElementById("i").value = null;
     document.getElementById("n").value = null;
     document.getElementById("t").value = null;
-    FV = Number(PV) *(1+(Number(i) / Number(n)))^(n*t);
+    FV = Number(PV)*(1+(Number(i)/Number(n)))^(Number(n)*Number(t));
+    console.log(PV);
+    console.log(FV);
 
 
-
-    if (PV > 0) {
+    if (FV > 0) {
         document.getElementById("PVresult").innerHTML = "<p class='msg' style=\"color:green;\">" + FV + "</p>";
         document.getElementById("resVariable").innerText = totalVariable;
-        if (PV > 0) {
+        if (totalVariable > 0) {
             // document.getElementById("next-2").style.visibility = "visible";
-            activateTab(2);
+            activateTab(1);
         }
     }
-    else if (PV == 0) {
-        document.getElementById("PVresult").innerHTML = "<p class='msg'>Present Value cannot be zero. Please input again.</p>";
+    else if (FV == 0) {
+        document.getElementById("PVresult").innerHTML = "<p class='msg' style=\"color:red;\">Present Value cannot be zero. Please input again.</p>";
     }
     else {
-        document.getElementById("PVresult").innerHTML = "<p class='msg'>Present Value cannot be negative. Please input again.</p>";
+        document.getElementById("PVresult").innerHTML = "<p class='msg' style=\"color:red;\">Present Value cannot be negative. Please input again.</p>";
     }
 }
 

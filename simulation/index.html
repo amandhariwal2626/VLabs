@@ -81,28 +81,29 @@
          Calculating Present value</h1>
          <div class="border-box center container-fluid">
             <div class="row">
-               <div class="col-xs-12 col-md-6 form-group" id="fixed-costs">
+               <div class="col-xs-12 col-md-6 form-group">
                   <h3 class="simscreen-names center">Enter following values: </h3>
                   <ul>
                      <li class="input-li">
                         <label for="FV" class="cost-labels">Future Value of money :</label>
-                        <input type="number" id="FV" name="rent" placeholder="ex :- 10000">
+                        <input type="number" id="FV" name="FV" placeholder="ex :- 10000">
                      </li>
                      <li class="input-li">
                         <label for="i" class="cost-labels">Interest Rate :</label>
-                        <input type="number" id="i" name="wages" placeholder="ex :- 8">
+                        <input type="number" id="i" name="i" placeholder="ex :- 8">
                      </li>
                      <li class="input-li">
                         <label for="n" class="cost-labels">No. of compounding periods per year :</label>
-                        <input type="number" id="n" name="otherFixed" placeholder="ex :- 2">
+                        <input type="number" id="n" name="n" placeholder="ex :- 2">
                      </li>
                      <li class="input-li">
                         <label for="t" class="cost-labels">No. of years :</label>
-                        <input type="number" id="t" name="otherFixed" placeholder="ex :- 3">
+                        <input type="number" id="t" name="t" placeholder="ex :- 3">
                      </li>
                   </ul>
-                  <div class="center"><button onclick="inputFixed()" type="button"
-                        class="btn btn-info btn-sm">Submit</button></div>
+                  <div class="center"><button onclick="calcPV()" type="button"
+                        class="btn btn-info btn-sm">Submit</button>
+                  </div>
 
                </div>
                <div class="col-xs-12 col-md-6 form-group" id="variable-costs">
@@ -112,105 +113,46 @@
                   <div class="msg-container" id="variableMsg"></div>
                </div>
             </div>
-         </div>
-         
+         </div>     
    </div>
-   <div class=" simscreen " id="calc2-screen">
-      <h2 class="simscreen-heading">Calculating Future Value</h2>
-      <div class="border-box container-fluid">
-         <div class="row">
-            <div class="col-xs-12 col-md-6 form-group center">
-               <ul>
-                  <li class="input-li">
-                     <h3 style="text-align:center;color:#bef392;background-color:#686D76"
-                        class="btn btn-light cursor-pointer" data-toggle="modal" data-target="#formulamodal">
-                        Formulae:
-                     </h3>
-                  </li>
-                  <li class="input-li">
-                     <label for="PV" class="cost-labels">Future Value of money :</label>
-                     <input type="number" id="PV" name="raw" placeholder="ex :- 10000">
-                  </li>
-                  <li class="input-li">
-                     <label for="i" class="cost-labels">Interest Rate :</label>
-                     <input type="number" id="i" name="pack" placeholder="ex :- 8">
-                  </li>
-                  <li class="input-li">
-                     <label for="n" class="cost-labels">No. of compounding periods per year :</label>
-                     <input type="number" id="n" name="otherFixed" placeholder="ex :- 2">
-                  </li>
-                  <li class="input-li">
-                     <label for="t" class="cost-labels">No. of years :</label>
-                     <input type="number" id="t" name="otherFixed" placeholder="ex :- 3">
-                  </li>
-            </div>
-            <div class="col-xs-12 col-md-6 form-group" id="variable-costs">
+   <div class="simscreen " id="calc2-screen">
+      <h2 class="simscreen-heading">
+         Calculating Future value</h1>
+         <div class="border-box center container-fluid">
+            <div class="row">
+               <div class="col-xs-12 col-md-6 form-group">
+                  <h3 class="simscreen-names center">Enter following values: </h3>
+                  <ul>
+                     <li class="input-li">
+                        <label for="PV" class="cost-labels">Present Value of money :</label>
+                        <input type="number" id="PV" name="PV" placeholder="ex :- 10000">
+                     </li>
+                     <li class="input-li">
+                        <label for="i" class="cost-labels">Interest Rate :</label>
+                        <input type="number" id="i" name="i" placeholder="ex :- 8">
+                     </li>
+                     <li class="input-li">
+                        <label for="n" class="cost-labels">No. of compounding periods per year :</label>
+                        <input type="number" id="n" name="n" placeholder="ex :- 2">
+                     </li>
+                     <li class="input-li">
+                        <label for="t" class="cost-labels">No. of years :</label>
+                        <input type="number" id="t" name="t" placeholder="ex :- 3">
+                     </li>
+                  </ul>
+                  <div class="center">
+                     <button onclick="calcFV()" type="button"class="btn btn-info btn-sm">Submit</button>
+                  </div>
 
-               <label for="raw" class="cost-labels">Result:</label>
-               <div class="msg-container" id="PVresult" bg-success></div>
-               <div class="msg-container" id="variableMsg"></div>
+               </div>
+               <div class="col-xs-12 col-md-6 form-group" id="variable-costs">
+                  <label for="raw" class="cost-labels">Result:</label>
+                  <div class="msg-container" id="PVresult" bg-success></div>
+                  <div class="msg-container" id="variableMsg"></div>
+               </div>
             </div>
-           
-         </div>
-         <div class="center">
-            <button type="button" class="btn btn-info btn-sm" onclick="inputVariable()">Submit</button>
-         </div>
-         
-      </div>
-      
-     
+         </div>     
    </div>
-   </div>
-
-   </div>
-   </div>
-   <!-- Modal -->
-   <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
-      aria-hidden="true">
-      <div class="modal-dialog modal-dialog-centered" role="document">
-         <div style="background-color:#373A40" class="modal-content">
-            <div class="modal-header">
-               <h3 class="modal-title" id="exampleModalLongTitle" style="color: rgb(190, 243, 146)">Results</h3>
-               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-               </button>
-            </div>
-            <div class="modal-body">
-               <p>Total Fixed Cost: <span id="resFixed"></span></p>
-               <p>Total Variable Cost: <span id="resVariable"></span></p>
-               <p>Total Revenue: <span id="resRevenue"></span></p>
-            </div>
-            <div class="modal-footer">
-               <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-               <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
-            </div>
-         </div>
-      </div>
-   </div>
-   <!-- Modal Formula -->
-   <div class="modal fade" id="formulamodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
-      aria-hidden="true">
-      <div class="modal-dialog modal-dialog-centered" role="document">
-         <div style="background-color:#373A40" class="modal-content">
-            <div class="modal-header">
-               <h3 class="modal-title" id="exampleModalLongTitle" style="color: rgb(190, 243, 146)">Equations:</h3>
-               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-               </button>
-            </div>
-            <div class="modal-body">
-               <img src="./images/formulae.png" class="img-responsive">
-            </div>
-            <div class="modal-footer">
-               <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-               <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
-            </div>
-         </div>
-      </div>
-   </div>
-  
-   </div>
-   
 </body>
 
 </html>
