@@ -50,12 +50,12 @@ function calcPV() {
     i = document.getElementById("i").value;
     n = document.getElementById("n").value;
     t = document.getElementById("t").value;
-    document.getElementById("FV").value = null;
-    document.getElementById("i").value = null;
-    document.getElementById("n").value = null;
-    document.getElementById("t").value = null;
+    document.getElementById("FV").value = '';
+    document.getElementById("i").value = '';
+    document.getElementById("n").value = '';
+    document.getElementById("t").value = '';
     PV = Number(FV) / (1 + (Number(i) / Number(n))) ^ (Number(n) * Number(t));
-
+    console.log(PV);
     if (PV > 0) {
         document.getElementById("FVresult").innerHTML = "<p class='msg' style=\"color:green;\">" + PV + "</p>";
         document.getElementById("resFixed").innerText = totalVariable;
@@ -71,6 +71,8 @@ function calcPV() {
     else {
         document.getElementById("FVresult").innerHTML = "<p class='msg'style=\"color:red;\">Future value cannot be negative. Please input again.</p>";
     }
+    activateTab(1);
+    activateTab(2);
 
 }
 
@@ -78,16 +80,23 @@ function calcFV() {
     deactivateTab(2);
     //deactivateTab(3);
     PV = document.getElementById("PV").value;
-    i = document.getElementById("i").value;
-    n = document.getElementById("n").value;
-    t = document.getElementById("t").value;
+    i = document.getElementById("i1").value;
+    n = document.getElementById("n1").value;
+    t = document.getElementById("t1").value;
     document.getElementById("PV").value = null;
-    document.getElementById("i").value = null;
-    document.getElementById("n").value = null;
-    document.getElementById("t").value = null;
-    FV = Number(PV)*(1+(Number(i)/Number(n)))^(Number(n)*Number(t));
-    console.log(PV);
-    console.log(FV);
+    document.getElementById("i1").value = null;
+    document.getElementById("n1").value = null;
+    document.getElementById("t1").value = null;
+    // FV = parseInt(PV)*((1+(parseInt(i)/parseInt(n)))^(parseInt(n)*parseInt(t)));
+    FV = Number(PV) / (1 + (Number(i) / Number(n))) ^ (Number(n) * Number(t));
+    // console.log(Number(PV));
+    // console.log(Number(i));
+    // console.log(Number(n));
+    // console.log(Number(t));
+    // // console.log(PV);
+    // // console.log(FV);
+    // console.log(1 + (Number(i) / Number(n)));
+    // console.log((Number(n) * Number(t)));
 
 
     if (FV > 0) {
@@ -104,5 +113,7 @@ function calcFV() {
     else {
         document.getElementById("PVresult").innerHTML = "<p class='msg' style=\"color:red;\">Present Value cannot be negative. Please input again.</p>";
     }
+    activateTab(1);
+    activateTab(2);
 }
 
